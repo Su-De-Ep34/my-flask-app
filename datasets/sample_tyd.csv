@@ -1,0 +1,11 @@
+,age,sex,on thyroxine,query on thyroxine,on antithyroid medication,sick,pregnant,thyroid surgery,I131 treatment,query hypothyroid,query hyperthyroid,lithium,goitre,tumor,hypopituitary,psych,TSH measured,TSH,T3 measured,T3,TT4 measured,TT4,T4U measured,T4U,FTI measured,FTI,TBG measured,TBG,referral source,binaryClass
+772,33,F,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,0.01,t,1.5,t,160,t,0.87,t,185,f,?,SVI,P
+437,59,F,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,1.4,t,1.1,t,121,t,1.11,t,109,f,?,SVI,P
+1761,72,F,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,0.34,t,1.4,t,100,t,0.8,t,124,f,?,SVHC,P
+89,49,F,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,0.1,t,0.3,t,32,t,0.53,t,60,f,?,SVI,P
+2552,70,M,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,2.3,t,1.4,t,98,t,0.94,t,105,f,?,SVI,P
+3274,59,F,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,0.82,t,2.6,t,180,t,1.42,t,126,f,?,SVI,P
+880,37,F,f,f,f,f,f,f,f,t,f,f,f,f,f,f,t,1.6,t,2.2,t,104,t,0.99,t,105,f,?,other,P
+2712,55,M,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,2,t,1.2,t,95,t,0.98,t,96,f,?,SVI,P
+801,22,F,f,f,f,f,f,f,f,f,f,f,f,f,f,f,t,5.6,t,3,t,123,t,1.22,t,101,f,?,SVI,P
+2254,51,F,f,f,f,f,f,f,f,t,f,f,f,f,f,f,t,58,f,?,t,77,t,1.11,t,69,f,?,other,N

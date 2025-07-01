@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Arsenal&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('/static/UIDesigns/background0.png');
+            background-color: white;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .hmain {
+            color : rgb(0, 68, 255);
+            font-weight: 3;
+            font-size : 100px;
+            font-family :system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            mix-blend-mode :multiply;
+        }
+@keyframes flash-red {
+  0%   { background-color: white; }
+  10%  { background-color: red; color: white;}
+  100% {background-color: white ;color : blue;}
+}
+
+.machine_button {
+    border-radius:6%;
+    border: none;
+    margin: 5px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 20px;
+    font-weight: normal;
+    color : rgb(33, 33, 33);
+    background-color: rgba(255, 255, 255, 0.637);
+    padding: 16px;  /* add padding to give some size */
+    height: auto;
+    width: auto;  
+    border : none;
+    transition : transform 0.3s ease  , 
+    background-color 0.3s ease , 
+    opacity 0.3s ease , 
+    color 0.3s ease ,
+    box-shadow 0.3s ease;
+}
+@keyframes flash_green {
+    0% {background-color: rgb(98, 0, 255); color : green;}
+    50% {background-color : grey; color : black;}
+    100% {background-color: white; color : blue;}
+}
+.machine_button:hover{
+    opacity : 0.7;
+    background-color: rgb(255, 3, 3);
+    color : rgb(254, 254, 254);
+    transform : translate(-5px , -5px) scale(1.45);
+
+}
+
+.machine_button:active{
+    opacity : 0.7;
+    animation : flash_green 0.5s forwards;
+    box-shadow :black;
+    transform : translate(-5px , -5px) scale(1.45);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* x-offset, y-offset, blur, color */
+
+}
+
+
+        .button_container {
+            display : grid;
+            grid-template-rows : repeat(3 , auto);
+            row-gap: 50px;
+            column-gap: 150px;
+            grid-template-columns: repeat(3 , auto);
+            position : relative;
+            margin-left : 50%;
+            margin-right : 2%;
+        }
+    </style>
+</head>
+<body>
+    <div class = "heading_container">
+        <h1 class="hmain">Welcome <br> Explore Our Health Risk <br> Predictor Tools</h1>
+    </div>
+    <div class = "button_container">
+        <button class = "machine_button" id = "hrt">
+            Heart
+        </button>
+                <button class = "machine_button" id = "lng">
+            Lung Cancer
+        </button>
+                <button class = "machine_button" id = "ast">
+            Asthma
+        </button>
+                <button class = "machine_button" id = "obs">
+            Obesity
+        </button>
+                <button class = "machine_button" id = "tyd">
+            Thyroid
+        </button>
+                <button class = "machine_button" id = "lvr">
+            Liver
+        </button>
+                <button class = "machine_button" id = "brn">
+            Brain
+        </button>
+                <button class = "machine_button" id = "dia">
+            Diabetes
+        </button>
+                <button class = "machine_button" id = "kdy">
+            Kidney
+        </button>
+    </div>
+</body>
+<script>
+    const buttons = document.querySelectorAll('.machine_button');
+    buttons.forEach(button => {
+        button.addEventListener('click' , (event) => {
+            const id = button.id;
+            open(`input?id=${id}` , '_blank');
+        })
+    });
+</script>
+</html>

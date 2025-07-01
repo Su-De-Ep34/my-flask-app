@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Input</title>
+</head>
+<body>
+    <div>
+        <img id = "img-id" height = 100>
+    </div>
+    
+    <br>
+
+    <div>
+        <a id = "attr-id" href = "#" target = "_blank">Click Here To Get Attribute Details</a>
+    </div>
+    
+    <br>
+
+    <div>
+
+    <form id = "formid" action = "/upload" method = "post" enctype = "multipart/form-data">
+        <div>
+            <label for = "filename">Upload A CSV File</label>
+            <input type = "file" id = "filename" name = "filename" accept = ".csv" required>
+        </div>
+        <br>
+        <div>
+            <input type="submit">
+        </div>
+    </form>
+
+    </div>
+
+</body>
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const diseaseId = params.get('id');
+
+    if (diseaseId) {
+        const link = document.getElementById("attr-id");
+        link.href = `${diseaseId}.html`;
+        link.name = diseaseId;
+        const image = document.getElementById("img-id");
+        image.src = `/static/${diseaseId}.png`;
+        const form = document.querySelector('#formid');
+        form.action = `/upload/${diseaseId}`;
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
+            fetch(`/get_attributes/${diseaseId}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Failed to fetch data");
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const oldAttrDiv = document.getElementById("attributes-display");
+                    if (oldAttrDiv) oldAttrDiv.remove();
+                    const attrDiv = document.createElement("div");
+                    attrDiv.id = "attributes-display";
+                    attrDiv.style.border = "1px solid #aaa";
+                    attrDiv.style.padding = "10px";
+                    attrDiv.style.marginTop = "20px";
+                    const heading = document.createElement("h3");
+                    heading.textContent = "Attributes:";
+                    attrDiv.appendChild(heading);
+                    const ul = document.createElement("ul");
+                    for (const key in data) {
+                        const li = document.createElement("li");
+                        li.textContent = `${key}: ${data[key]}`;
+                        ul.appendChild(li);
+                    }
+                    attrDiv.appendChild(ul);
+                    document.body.appendChild(attrDiv);
+                })
+                .catch(error => alert("Error: " + error));
+        });
+
+        
+    }
+</script>
+</html>
